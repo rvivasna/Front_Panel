@@ -1,0 +1,42 @@
+import Front_Panel
+
+ILI9341_BLACK = 0x0000
+ILI9341_NAVY = 0x000F
+ILI9341_DARKGREEN = 0x03E0
+ILI9341_DARKCYAN = 0x03EF
+ILI9341_MAROON = 0x7800
+ILI9341_PURPLE = 0x780F
+ILI9341_OLIVE = 0x7BE0
+ILI9341_LIGHTGREY = 0xC618
+ILI9341_DARKGREY = 0x7BEF
+ILI9341_BLUE = 0x001F
+ILI9341_GREEN = 0x07E0
+ILI9341_CYAN = 0x07FF
+ILI9341_RED = 0xF800
+ILI9341_MAGENTA = 0xF81F
+ILI9341_YELLOW = 0xFFE0
+ILI9341_WHITE = 0xFFFF
+ILI9341_ORANGE = 0xFD20
+ILI9341_GREENYELLOW = 0xAFE5
+ILI9341_PINK = 0xFC18
+
+TFT_WIDTH = 320
+TFT_HEIGHT = 240
+TCP_PORT = 23
+
+tft = RemotePanel.AdafruitGfxRemote('192.168.1.14', TCP_PORT, TFT_WIDTH, TFT_HEIGHT)
+
+def base():
+    tft.fill_screen(ILI9341_BLACK)
+    tft.fill_rect(0,0,300,20,ILI9341_BLUE)
+    tft.set_text_size(2)
+    tft.set_cursor(3,5)
+    tft.print(ILI9341_WHITE,ILI9341_BLUE,'Temperatura (Celsius)')
+    tft.render()
+
+def main():
+    base()
+
+
+if __name__ == "__main__":
+    main()
